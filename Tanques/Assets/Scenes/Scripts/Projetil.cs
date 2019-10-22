@@ -30,6 +30,7 @@ public class Projetil : MonoBehaviour
             other.gameObject.SetActive(false);
             Destroy(gameObject);
             
+            
 
             //contar pontos
 
