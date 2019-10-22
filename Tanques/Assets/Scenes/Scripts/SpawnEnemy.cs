@@ -14,7 +14,7 @@ public class SpawnEnemy : MonoBehaviour
     public Transform player;
     public Transform spawn;
     public float respawnTime;
-    public float speed = 10.0f;
+    public float speed;
     const float distancia = 0.1f;
     float xpos;
     float zpos;

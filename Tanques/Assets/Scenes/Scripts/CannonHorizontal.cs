@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CannonHorizontal : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()

@@ -40,8 +40,5 @@ public class Projetil : MonoBehaviour
             score.Points = 10;
 
         }
-
-
-
     }
 }

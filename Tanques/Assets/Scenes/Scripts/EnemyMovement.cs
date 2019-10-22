@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     //inimigo siga o player
     private Transform player;
-    public float speed = 10.0f;
+    public float speed;
     const float distancia = 0.1f;
 
     private void Start()
@@ -16,11 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        /*transform.LookAt(player);
-        if ((transform.position - player.position).magnitude > distancia)
-        {
-            transform.Translate(0f, 0f, speed * Time.deltaTime);
-        }*/
+        
         float step = speed * Time.deltaTime;
 
         transform.position = Vector3.MoveTowards(transform.position, player.position, step);
