@@ -529,7 +529,7 @@ MonoBehaviour:
     type: 3}
   player: {fileID: 1787727925}
   spawn: {fileID: 1190567307}
-  respawnTime: 2
+  respawnTime: 5
   speed: 1
 --- !u!4 &1190567307
 Transform:
