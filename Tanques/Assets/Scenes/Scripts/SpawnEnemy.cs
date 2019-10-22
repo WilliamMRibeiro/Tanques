@@ -4,42 +4,51 @@ using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public GameObject enemy;
-    private float timeLimit = 5f;
-    private float timer = 0f;
+    //Fazer o objeto nascer em um ponto especifico
+    //instanciar em um tempo especifico
+    //objeto seguir o jogador
+    //objeto atirar no jogador
+    //objeto se destruir
+
+    public GameObject enemySpawn;
+    public Transform player;
+    public Transform spawn;
+    public float respawnTime = 1.0f;
     public float speed = 10.0f;
-    public float rotatespeed = 50.0f;
-    public Transform saida;
-    Rigidbody rb;
-    // Start is called before the first frame update
+    const float distancia = 0.1f;
+    
 
 
-    // Update is called once per frame
-    private void Awake()
+    void Start()
     {
-        //rb = GetComponent<Rigidbody>();
+                StartCoroutine(enemyrespawn());
     }
-    void Update()
+    
+    private void respawn()
     {
-        timer += Time.deltaTime;
+       
+              GameObject instaenemy = Instantiate(enemySpawn, spawn.position, spawn.rotation) as GameObject;
 
-        if (timer >= timeLimit)
+        instaenemy.transform.LookAt(player);
+        if ((instaenemy.transform.position - player.position).magnitude > distancia)
         {
-            
-            
-                float rotateTank = 10f;
-                float moveTank = 50f;
+            instaenemy.transform.Translate(0f, 0f, speed * Time.deltaTime);
+        }
 
-                GameObject instaenemy = Instantiate(enemy, saida.position, saida.rotation) as GameObject;
-                Rigidbody instenemytrb = instaenemy.GetComponent<Rigidbody>();
-                rb.velocity = transform.forward * speed * moveTank * Time.deltaTime;
 
-                transform.Rotate(Vector3.up * rotatespeed * rotateTank * Time.deltaTime);
-            
-            timer = 0;
-            Destroy(gameObject);
+
+    }
+    
+    IEnumerator enemyrespawn()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(respawnTime);
+        respawn();
+
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -48,12 +57,9 @@ public class SpawnEnemy : MonoBehaviour
 
             other.gameObject.SetActive(false);
             Destroy(gameObject);
-
-
+            
         }
-
-
-
+        
     }
     
 }

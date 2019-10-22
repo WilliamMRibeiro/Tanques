@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         float moveTank = Input.GetAxis("Vertical");
 
         rb.velocity = transform.forward * speed * moveTank *Time.deltaTime;
-
+        
         transform.Rotate(Vector3.up * rotatespeed * rotateTank * Time.deltaTime);
     }
        
