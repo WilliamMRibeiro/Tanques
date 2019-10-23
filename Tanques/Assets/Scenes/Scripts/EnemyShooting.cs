@@ -23,8 +23,7 @@ public class EnemyShooting : MonoBehaviour
         {
             timer = 0;
             Shoot();
-
-            
+                        
         }
     }
     // Update is called once per frame

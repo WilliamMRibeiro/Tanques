@@ -23,8 +23,17 @@ public class Projetil : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.tag == "Player")
+
+        {
+
+            //other.gameObject.SetActive(false);
+            Destroy(gameObject);
+
+        }
+
         if (other.gameObject.tag == "Enemy")
+
         {
 
             other.gameObject.SetActive(false);
