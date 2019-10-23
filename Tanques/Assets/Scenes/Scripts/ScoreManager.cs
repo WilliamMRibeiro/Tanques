@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     public Text scoreText;
 
-    private int points = 0;//isso é um campo ou membro da classe "scoremanager"
+    private int points;//isso é um campo ou membro da classe "scoremanager"
 
     public int Points //Propriedades é um tipo de variavel que encapsula um campo privado
 
