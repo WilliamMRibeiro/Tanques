@@ -4,32 +4,22 @@ using UnityEngine;
 
 public class CannonHorizontal : MonoBehaviour
 {
-    public float speed;
+    public float speed; // variavel de velocidade que define a velocidade da rotação
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        /*float mouseX = Input.GetAxis("Mouse X") * speed * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
 
-        transform.Rotate(0, mouseX, 0);*/
+        Vector3 horizontal = new Vector3(0, speed * Time.deltaTime, 0); //variavel de posição 
 
-        Vector3 horizontal = new Vector3(0, speed * Time.deltaTime, 0);
-
-        if (Input.GetKey(KeyCode.Keypad4))
+        if (Input.GetKey(KeyCode.Keypad4))// faz a rotação do canhão na tecla 4 
         {
-            transform.Rotate(-horizontal);
+            transform.Rotate(-horizontal);// faz a rotação acontecer
 
         }
-        if (Input.GetKey(KeyCode.Keypad6))
+        if (Input.GetKey(KeyCode.Keypad6))// faz a rotação do canhao na tecla 6
         {
-            transform.Rotate(horizontal);
+            transform.Rotate(horizontal);// faz a rotação acontecer
         }
 
         

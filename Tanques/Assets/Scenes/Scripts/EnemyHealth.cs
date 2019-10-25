@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     void OnDisable()
     {
-        Destroy(gameObject);
+        Destroy(gameObject);//destroy o clone do inimigo
     }
    
 }

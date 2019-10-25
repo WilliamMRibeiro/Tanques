@@ -4,36 +4,30 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    public GameObject bullet;
-    public float speed = 35f;
-    public Transform saida;
-    public float timer;
-    public float timeLimit;
+    public GameObject bullet;// porder selecionar o prefab que será a bala
+    public float speed = 35f;// velocidade do tiro
+    public Transform saida;// lugar onde vai sair o tiro
+    public float timer;// define o tempo
+    public float timeLimit;// define o limite de tempo
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
     void Update()
     {
-        timer += Time.deltaTime;
+        timer += Time.deltaTime;// controla os frames
 
-        if (timer >= timeLimit)
+        if (timer >= timeLimit)// define a condição pro inimigo atirar
         {
-            timer = 0;
-            Shoot();
-                        
+            timer = 0;//reseta o timer
+
+            Shoot();// faz o tiro
         }
     }
-    // Update is called once per frame
-    void Shoot()
+    
+    void Shoot()//faz atirar
     { 
-        
-        GameObject instabullet = Instantiate(bullet, saida.position, saida.rotation) as GameObject;
-        Rigidbody instabulletrb = instabullet.GetComponent<Rigidbody>();
-        instabulletrb.velocity = saida.forward * speed;
-
+        GameObject instabullet = Instantiate(bullet, saida.position, saida.rotation) as GameObject;//cria a bala como um gameobject
+        Rigidbody instabulletrb = instabullet.GetComponent<Rigidbody>();//adicionar rigidbody a bala
+        instabulletrb.velocity = saida.forward * speed;// faz a bala ir pra frente
     }
     
 }

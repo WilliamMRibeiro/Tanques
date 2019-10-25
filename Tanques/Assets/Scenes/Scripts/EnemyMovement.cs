@@ -5,27 +5,23 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     //inimigo siga o player
-    private Transform player;
-    public float speed;
-    const float distancia = 0.1f;
+
+    private Transform player;// posição do objeto que o inimigo vai seguir
+    public float speed;// variavel de velocidade
+    
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();//define o valor do posicionamento do player para o inimigo seguir
     }
 
     private void Update()
     {
         
-        float step = speed * Time.deltaTime;
+        float step = speed * Time.deltaTime;// velocidade
 
-        transform.position = Vector3.MoveTowards(transform.position, player.position, step);
-        transform.LookAt(player, Vector3.up);
-        if (Vector3.Distance(transform.position, player.position) < 0.001f)
-        {
-
-            player.position *= -1.0f;
-
-        }
+        transform.position = Vector3.MoveTowards(transform.position, player.position, step);// faz o inimigo seguir o player
+        transform.LookAt(player, Vector3.up);// aponta o inimigo para a direção do jogador
+        
     }
 }

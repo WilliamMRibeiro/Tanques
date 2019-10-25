@@ -862,5 +862,9 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 42292685}
+    - target: {fileID: 541788644, guid: ded74d0d35a952a4d8a23c8f37c56528, type: 3}
+      propertyPath: cameragameover
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded74d0d35a952a4d8a23c8f37c56528, type: 3}

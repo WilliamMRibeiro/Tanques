@@ -4,49 +4,40 @@ using UnityEngine;
 
 public class Projetil : MonoBehaviour
 {
-    private float timeLimit = 5f;
-    private float timer = 0f;
+    private float timeLimit = 5f;//define valor limite de tempo
+    private float timer = 0f;//define valor
     
-    // Start is called before the first frame update
-    
-
-    // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        timer += Time.deltaTime;//soma o tempo
 
-        if (timer >= timeLimit)
+        if (timer >= timeLimit)//condição pra verificação
         {
-            timer = 0;
-            Destroy(gameObject);
+            timer = 0;//reseta timer
+            Destroy(gameObject);//destroi o clone da bala
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)//quando colidir
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")//procura a tag player
 
         {
 
-            //other.gameObject.SetActive(false);
-            Destroy(gameObject);
+           Destroy(gameObject);//destroi a bala
 
         }
 
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")//procura o inimigo
 
         {
 
-            other.gameObject.SetActive(false);
-            Destroy(gameObject);
+            other.gameObject.SetActive(false);//destroi o inimigo
+            Destroy(gameObject);//destroi a bala
             
-            
+            ScoreManager score;//guarda os pontos
 
-            //contar pontos
-
-            ScoreManager score;
-
-            score = GameObject.Find("Score").GetComponent<ScoreManager>();
-            score.Points = 10;
+            score = GameObject.Find("Score").GetComponent<ScoreManager>();//encontra o componente score
+            score.Points = 10;// adiciona 10 cada vez que acerta um inimigo
 
         }
     }
