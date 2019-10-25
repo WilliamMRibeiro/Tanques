@@ -4,42 +4,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 1;
+    public float speed;// define o valor de velocidade
+    public float rotatespeed;// define o valor de rotação
 
-    private Rigidbody rb;
+    Rigidbody rb;// variaval para o rigidbody
 
-    void Start()
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();// adiciona o ridigbody
     }
+
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        float rotateTank = Input.GetAxis("Horizontal");//adiciona valores que são acionados pelo player
+        float moveTank = Input.GetAxis("Vertical");// adiciona valores que são acionados pelo player
 
-        //Movimentacao(moveVertical);
-
+        rb.velocity = transform.forward * speed * moveTank *Time.deltaTime;//define a velocidade do tanque
         
-        Vector3 movement = new Vector3(0, 0.0f,moveVertical);
-        
-        // float n_Speed = moveVertical * speed * Time.deltaTime;
-
-        //Vector3 movement = new Vector3(0, 0, n_Speed);
-
-        //rb.MovePosition(rb.position + movement);
-        rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
-
-        Quaternion rot = Quaternion.Euler(new Vector3(0, moveHorizontal, 0));
-
-        rb.MoveRotation(rb.rotation * rot);
+        transform.Rotate(Vector3.up * rotatespeed * rotateTank * Time.deltaTime);// define a velocidade da rotação do tanque
     }
-
-    void Movimentacao(float vertical)
-    {
-        Vector3 movement = transform.forward * vertical * speed * Time.deltaTime;
-
-        rb.MovePosition(rb.position + movement);
-    }
+       
 }
 
