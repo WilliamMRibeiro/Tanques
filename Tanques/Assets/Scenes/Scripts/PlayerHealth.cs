@@ -32,6 +32,13 @@ public class PlayerHealth : MonoBehaviour
             
         }
 
+        if (other.gameObject.tag == "Life")//procura a tag Bullet que é a bala
+        {
+            Health += health;// aumenta 10 do valor de vida para cada bala que atingir o player
+            healthText.text = "Health: " + Health.ToString();// escreve na tela o valor de vida
+
+        }
+
     }
     public void gameOver()//game over
     {
